@@ -14,11 +14,13 @@ def returnDefault(ftp):
             print('[+] Found default page: ' + fileName)
             retList.append(fileName)
     return retList
-#host = '192.168.28.174'
-host = '192.168.95.179'
-userName = 'guest'
-passWord = 'guest'
+host = '192.168.28.174'
+#host = '192.168.95.179'
+userName = 'philip'
+passWord = 'philip'
 ftp = ftplib.FTP(host)
 ftp.login(userName, passWord)
+print('\n[*] ' + str(host) +\
+    ' FTP Logon Succeeded: '+userName+"/"+passWord)
 returnDefault(ftp)
 

@@ -113,6 +113,10 @@ dmypy.json
 *.txt
 *.dat
 *.tar
+*.tmp
+*.html
+*.asp
+
 # ignore dir
 dsa/
 rsa/
