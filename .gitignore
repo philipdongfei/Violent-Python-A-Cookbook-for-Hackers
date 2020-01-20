@@ -116,7 +116,8 @@ dmypy.json
 *.tmp
 *.html
 *.asp
-
+*.jpg
+*.gif
 # ignore dir
 dsa/
 rsa/
