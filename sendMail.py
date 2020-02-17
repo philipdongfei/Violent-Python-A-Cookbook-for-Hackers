@@ -7,7 +7,8 @@ def sendMail(user, pwd, to, subject, text):
     msg['To'] = to
     msg['Subject'] = subject
     try:
-        smtpServer = smtplib.SMTP('smtp.gmail.com', 587)
+        #smtpServer = smtplib.SMTP('smtp.gmail.com', 587)
+        smtpServer = smtplib.SMTP('smtp.office365.com', 587)
         print('[+] Connecting To Mail Server.')
         smtpServer.ehlo()
         print("[+] Starting Encrypted Session.")
@@ -22,7 +23,7 @@ def sendMail(user, pwd, to, subject, text):
     except Exception as e:
         print("[-] Sending Mail Failed.")
         print(e)
-user = 'philip.dongfei@gmail.com'
+user = 'philip.dong@outlook.com'
 pwd = '1979416sting'
 sendMail(user, pwd, 'philip.dong@hotmail.com',\
     'Re: Important', 'Test Message')

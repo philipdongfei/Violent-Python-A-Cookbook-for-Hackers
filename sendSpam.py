@@ -11,7 +11,8 @@ def sendMail(user, pwd, to, subject, text):
     msg['To'] = to
     msg['Subject'] = subject
     try:
-        smtpServer = smtplib.SMTP('smtp.gmail.com', 587)
+        #smtpServer = smtplib.SMTP('smtp.gmail.com', 587)
+        smtpServer = smtplib.SMTP('smtp.office365.com', 587)
         print("[+] Connecting To Mail Server.")
         smtpServer.ehlo()
         print("[+] Starting Encrypted Session.")
